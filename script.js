@@ -282,12 +282,37 @@ document.addEventListener('DOMContentLoaded', function () {
         var playerVideo = modalEl ? modalEl.querySelector('.player-video') : null;
         var playerIframe = modalEl ? modalEl.querySelector('.player-iframe') : null;
 
+        var fallbackTimer = null;
+
+        function clearFallbackTimer() {
+            if (fallbackTimer) {
+                clearTimeout(fallbackTimer);
+                fallbackTimer = null;
+            }
+        }
+
+        /* Plays a direct video stream. `fallback` is the Drive embed URL used
+           when the stream can't be played — either because the host has no
+           /drive-stream proxy (static hosting) or because the request stalls. */
         function openPlayer(src, fallback) {
             if (!modalEl || !playerVideo) return;
+            clearFallbackTimer();
+            playerVideo.onerror = null;
+            playerVideo.onloadeddata = null;
             if (fallback) {
-                playerVideo.onerror = function () {
+                var useFallback = function () {
+                    clearFallbackTimer();
+                    playerVideo.onerror = null;
+                    playerVideo.onloadeddata = null;
                     openIframePlayer(fallback);
                 };
+                playerVideo.onerror = useFallback;
+                playerVideo.onloadeddata = function () {
+                    clearFallbackTimer();
+                };
+                fallbackTimer = setTimeout(function () {
+                    if (playerVideo.readyState < 2) useFallback();
+                }, 9000);
             }
             playerVideo.src = src;
             playerVideo.load();
@@ -315,8 +340,19 @@ document.addEventListener('DOMContentLoaded', function () {
                 encodeURIComponent(id) + '&export=download&confirm=t';
         }
 
+        /* Drive's embeddable player URL — the fallback when the local streaming
+           proxy isn't available (e.g. on static hosting such as Vercel). */
+        function drivePreviewUrl(id) {
+            return 'https://drive.google.com/file/d/' + encodeURIComponent(id) + '/preview';
+        }
+
         function openIframePlayer(src) {
             if (!modalEl || !playerIframe) return;
+            clearFallbackTimer();
+            if (playerVideo) {
+                playerVideo.onerror = null;
+                playerVideo.onloadeddata = null;
+            }
             playerIframe.src = src;
             modalEl.classList.add('is-open', 'is-iframe');
             modalEl.setAttribute('aria-hidden', 'false');
@@ -324,6 +360,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
         function closePlayer() {
             if (!modalEl) return;
+            clearFallbackTimer();
             if (playerVideo) {
                 playerVideo.pause();
                 playerVideo.onerror = null;
@@ -351,16 +388,15 @@ document.addEventListener('DOMContentLoaded', function () {
                 item.addEventListener('click', function (e) {
                     e.preventDefault();
                     var id = driveFileId(r.gdrive);
-                    var direct = id
-                        ? (r.quality
-                            ? '/drive-stream?id=' + encodeURIComponent(id) + '&q=' + encodeURIComponent(r.quality)
-                            : driveStreamUrl(r.gdrive))
-                        : null;
-                    if (direct) {
-                        openPlayer(direct, r.gdrive);
-                    } else {
+                    if (!id) {
                         openIframePlayer(r.gdrive);
+                        return;
                     }
+                    var preview = drivePreviewUrl(id);
+                    var direct = r.quality
+                        ? '/drive-stream?id=' + encodeURIComponent(id) + '&q=' + encodeURIComponent(r.quality)
+                        : driveStreamUrl(r.gdrive);
+                    openPlayer(direct, preview);
                 });
             }
         });
