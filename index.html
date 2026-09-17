@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Yasir Ahmed — Video Editor &amp; Director. Commercial editing, social media content, motion. Based on Premiere Pro and After Effects.">
+    <title>Yasir Ahmed | Video Editor &amp; Director</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- CINEMATIC LOGO INTRO -->
+    <div id="intro" class="intro" aria-hidden="true">
+        <video id="intro-video" muted playsinline preload="auto" tabindex="-1">
+            <source src="public/animations/yasir-logo.webm" type="video/webm">
+        </video>
+        <span class="intro-fallback" aria-hidden="true">YASIR&nbsp;AHMED</span>
+    </div>
+
+    <!-- PAGE TRANSITION OVERLAY -->
+    <div class="page-transition" aria-hidden="true"></div>
+
+    <!-- NAVIGATION -->
+    <nav class="navbar">
+        <a class="nav-brand" href="#home">YASIR&nbsp;AHMED</a>
+        <div class="nav-links">
+            <a href="#work">Work</a>
+            <a href="#about">About</a>
+            <a href="#contact">Contact</a>
+        </div>
+        <button class="nav-toggle" type="button" aria-label="Menu" aria-expanded="false">
+            <span></span>
+            <span></span>
+        </button>
+    </nav>
+
+    <!-- MOBILE MENU -->
+    <div class="menu" aria-hidden="true">
+        <a href="#work">Work</a>
+        <a href="#about">About</a>
+        <a href="#contact">Contact</a>
+        <a class="menu-email" href="mailto:yasirahmedpj@gmail.com">yasirahmedpj@gmail.com</a>
+        <span class="menu-foot">&copy; 2026 Yasir Ahmed</span>
+    </div>
+
+    <!-- HERO -->
+    <header class="hero" id="home">
+        <video class="hero-video" autoplay muted loop playsinline preload="metadata" aria-hidden="true" tabindex="-1">
+            <source src="public/assets/videos/web bg video.mp4" type="video/mp4">
+        </video>
+        <div class="wrap hero-inner">
+            <h1 class="hero-title">
+                <span
+                    class="fold-text"
+                    data-fold-render
+                    data-text="YASIR"
+                    data-split-by="char"
+                    data-hinge="bottom"
+                    data-trigger="scroll"
+                    data-font-size="clamp(3.1rem, 13vw, 11.5rem)"
+                    data-font-weight="700"
+                    data-color="#ffffff"></span>
+                <span
+                    class="fold-text"
+                    data-fold-render
+                    data-text="AHMED"
+                    data-split-by="char"
+                    data-hinge="top"
+                    data-trigger="scroll"
+                    data-font-size="clamp(3.1rem, 13vw, 11.5rem)"
+                    data-font-weight="700"
+                    data-color="#ffffff"></span>
+            </h1>
+            <p class="hero-subtitle"><span class="rec-dot" aria-hidden="true"></span>Video Editor &amp; Director</p>
+            <p class="hero-tagline">Visual storytelling through editing, motion and sound.</p>
+            <a class="btn-ghost hero-cta" href="#work" data-cursor-text="View Work">
+                <span class="btn-text">View Work</span>
+                <span class="btn-arrow">&#8595;</span>
+            </a>
+        </div>
+        <div class="scroll-indicator" aria-hidden="true">
+            <span>Scroll</span>
+        </div>
+    </header>
+
+    <!-- WORK -->
+    <section id="work" class="section work">
+        <div class="wrap">
+            <div class="section-head reveal">
+                <span class="eyebrow">Commercials</span>
+                <span class="section-count eyebrow" id="project-count">06</span>
+            </div>
+            <div class="project-list" id="project-list">
+                <!-- Projects injected by script.js -->
+            </div>
+        </div>
+    </section>
+
+    <!-- SHORTFILMS -->
+    <section id="shortfilms" class="section">
+        <div class="wrap">
+            <div class="section-head reveal">
+                <span class="eyebrow">Shortfilms</span>
+                <span class="section-count eyebrow" id="shortfilm-count">00</span>
+            </div>
+            <div class="project-list" id="shortfilm-list">
+                <!-- Shortfilms injected by script.js -->
+            </div>
+        </div>
+    </section>
+
+    <!-- REELS -->
+    <section id="reels" class="section reels">
+        <div class="wrap">
+            <div class="section-head reel-head reveal">
+                <span class="eyebrow">Shortform&nbsp;Contents</span>
+                <span class="section-count eyebrow" id="reel-count">00</span>
+            </div>
+            <div class="reel-grid" id="reel-grid">
+                <!-- Reels injected by script.js -->
+            </div>
+        </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section id="about" class="section about">
+        <div class="wrap">
+            <div class="section-head reveal">
+                <span class="eyebrow">About</span>
+            </div>
+            <p class="about-lede reveal">
+                I&rsquo;m Yasir Ahmed &mdash; a director and video editor who turns raw footage into stories that stick. I don&rsquo;t just edit; I craft narratives, pacing every cut and frame with purpose. My work blends technical mastery with a relentless creative instinct, shaped by years behind the timeline. Whether it&rsquo;s a film, a brand story, or a music video &mdash; I bring vision, precision, and impact to everything I create.
+            </p>
+            <div class="about-grid">
+                <div class="about-aside reveal">
+                    <h4 class="eyebrow">Capabilities</h4>
+                    <ul class="rows">
+                        <li><span>Video&nbsp;Editing</span></li>
+                        <li><span>Film&nbsp;Editing</span></li>
+                        <li><span>Direction</span></li>
+                        <li><span>Motion&nbsp;Graphics</span></li>
+                        <li><span>Color&nbsp;Grading</span></li>
+                        <li><span>Sound&nbsp;Design</span></li>
+                        <li><span>Commercial&nbsp;Editing</span></li>
+                        <li><span>Social&nbsp;Media&nbsp;Content</span></li>
+                    </ul>
+                </div>
+                <div class="about-aside reveal">
+                    <h4 class="eyebrow">Tools</h4>
+                    <ul class="rows">
+                        <li><span>Adobe&nbsp;Premiere&nbsp;Pro</span></li>
+                        <li><span>Adobe&nbsp;After&nbsp;Effects</span></li>
+                        <li><span>Adobe&nbsp;Photoshop</span></li>
+                        <li><span>DaVinci&nbsp;Resolve</span></li>
+                        <li><span>FL&nbsp;Studio</span></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact" class="section contact">
+        <div class="wrap">
+            <div class="section-head reveal">
+                <span class="eyebrow">Contact</span>
+            </div>
+            <h3 class="contact-statement reveal">Have a project in <span class="tone">mind?</span></h3>
+            <h2 class="contact-email reveal">
+                <a href="mailto:yasirahmedpj@gmail.com">yasirahmedpj@gmail.com</a>
+            </h2>
+            <div class="contact-links reveal">
+                <span class="contact-follow">Follow on</span>
+                <a href="https://www.instagram.com/yax.r_/?hl=en" target="_blank" rel="noopener noreferrer" class="contact-link">Instagram</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="footer-giant reveal" aria-hidden="true">
+            <span>YASIR</span><span class="fg-g">AHMED</span>
+        </div>
+        <div class="wrap footer-meta">
+            <span>&copy; 2026 Yasir Ahmed</span>
+            <span class="fm-sep" aria-hidden="true"></span>
+            <span>Video Editor &amp; Director</span>
+        </div>
+    </footer>
+
+    <!-- VIDEO PLAYER MODAL -->
+    <div class="player-modal" id="player-modal" role="dialog" aria-modal="true" aria-label="Video player" aria-hidden="true">
+        <div class="player-backdrop"></div>
+        <div class="player-frame">
+            <button class="player-close" type="button" aria-label="Close video">&#10005;</button>
+            <video class="player-video" controls playsinline preload="auto" tabindex="-1"></video>
+            <iframe class="player-iframe" src="" allow="autoplay; encrypted-media; fullscreen" allowfullscreen tabindex="-1" title="Embedded video"></iframe>
+        </div>
+    </div>
+
+    <!-- SCRIPTS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+    <script src="FoldText.js"></script>
+    <script src="projects.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

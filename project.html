@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Yasir Ahmed — Video Editor &amp; Director. Project detail.">
+    <title>Project | Yasir Ahmed</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- PAGE TRANSITION OVERLAY -->
+    <div class="page-transition" aria-hidden="true"></div>
+
+    <!-- NAVIGATION -->
+    <nav class="navbar">
+        <a class="nav-brand js-transition" href="index.html">YASIR&nbsp;AHMED</a>
+        <div class="nav-links">
+            <a class="js-transition" href="index.html#work">Work</a>
+            <a class="js-transition" href="index.html#about">About</a>
+            <a class="js-transition" href="index.html#contact">Contact</a>
+        </div>
+        <button class="nav-toggle" type="button" aria-label="Menu" aria-expanded="false">
+            <span></span>
+            <span></span>
+        </button>
+    </nav>
+
+    <!-- MOBILE MENU -->
+    <div class="menu" aria-hidden="true">
+        <a class="js-transition" href="index.html#work">Work</a>
+        <a class="js-transition" href="index.html#about">About</a>
+        <a class="js-transition" href="index.html#contact">Contact</a>
+        <a class="menu-email js-transition" href="index.html#contact">yasirahmedpj@gmail.com</a>
+        <span class="menu-foot">&copy; 2026 Yasir Ahmed</span>
+    </div>
+
+    <!-- PROJECT -->
+    <main class="project-page" id="project">
+        <div class="wrap">
+            <a class="project-back js-transition" href="index.html#work">
+                <span class="back-arrow">&larr;</span>
+                <span>All Work</span>
+            </a>
+
+            <header class="project-head">
+                <div class="project-stats reveal" id="project-stats">
+                    <span id="project-category">Commercial</span>
+                    <span>&mdash;</span>
+                    <span id="project-year">2026</span>
+                </div>
+                <h1 class="project-title reveal" id="project-title">Project</h1>
+            </header>
+
+            <figure class="project-media reveal-image" id="project-media">
+                <!-- Image or video injected by project.js -->
+            </figure>
+
+            <div class="project-cols" id="project-cols">
+                <div class="project-desc">
+                    <p id="project-role" class="project-role"></p>
+                    <p id="project-description"></p>
+                    <a id="project-source" class="project-source is-hidden js-transition" href="#" target="_blank" rel="noopener">
+                        View Source <span>&#8599;</span>
+                    </a>
+                </div>
+                <aside class="project-aside is-hidden" id="project-aside">
+                    <h4 class="eyebrow">Tools</h4>
+                    <ul class="rows" id="project-tools"><!-- injected --></ul>
+                </aside>
+            </div>
+
+            <nav class="project-pager" id="project-pager">
+                <!-- Previous / next injected by project.js -->
+            </nav>
+        </div>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="footer-giant reveal" aria-hidden="true">
+            <span>YASIR</span><span class="fg-g">AHMED</span>
+        </div>
+        <div class="wrap footer-meta">
+            <span>&copy; 2026 Yasir Ahmed</span>
+            <span class="fm-sep" aria-hidden="true"></span>
+            <span>Video Editor &amp; Director</span>
+        </div>
+    </footer>
+
+    <!-- SCRIPTS -->
+    <script src="projects.js"></script>
+    <script src="script.js"></script>
+    <script src="project.js"></script>
+</body>
+</html>

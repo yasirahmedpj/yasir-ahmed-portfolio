@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mobile Preview — Yasir Ahmed Portfolio</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 1.5rem;
+            background: radial-gradient(90% 90% at 50% 10%, #0d0d0b 0%, #050505 100%);
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            padding: 2rem 1rem;
+            overflow-x: hidden;
+        }
+
+        /* ---------- page header ---------- */
+        .page-header { text-align: center; }
+        .page-header h1 {
+            color: #8a8984;
+            font-size: 0.62rem;
+            letter-spacing: 0.35em;
+            text-transform: uppercase;
+            font-weight: 500;
+            margin-bottom: 0.35rem;
+        }
+        .page-header p {
+            color: #3d3b36;
+            font-size: 0.56rem;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+        }
+
+        /* ---------- phone frame ---------- */
+        .phone-wrap {
+            position: relative;
+            display: flex;
+            align-items: flex-start;
+            gap: 2rem;
+        }
+
+        .phone {
+            position: relative;
+            width: 375px;
+            height: 780px;
+            border-radius: 52px;
+            background: #171715;
+            padding: 12px;
+            box-shadow:
+                0 0 0 1.5px #2a2a2a,
+                0 0 0 3px #111,
+                0 50px 100px rgba(0,0,0,0.75),
+                inset 0 0 0 1px rgba(255,255,255,0.05);
+            flex-shrink: 0;
+            transition: width 0.45s cubic-bezier(0.22, 1, 0.36, 1),
+                        height 0.45s cubic-bezier(0.22, 1, 0.36, 1);
+        }
+
+        .phone-notch {
+            position: absolute;
+            top: 12px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 150px;
+            height: 30px;
+            background: #171715;
+            border-radius: 0 0 18px 18px;
+            z-index: 30;
+        }
+        .phone-notch::before {
+            content: '';
+            position: absolute;
+            top: 9px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 55px;
+            height: 5px;
+            background: #333;
+            border-radius: 3px;
+        }
+
+        .phone-screen {
+            width: 100%;
+            height: 100%;
+            border-radius: 42px;
+            overflow: hidden;
+            background: #070707;
+        }
+
+        .phone-screen iframe {
+            display: block;
+            width: 100%;
+            height: 100%;
+            border: 0;
+            background: #070707;
+        }
+
+        /* ---------- device pills ---------- */
+        .device-pills {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+        .device-pills button {
+            padding: 0.55rem 1.1rem;
+            border: 1px solid #222;
+            background: transparent;
+            color: #666;
+            font-family: 'Inter', sans-serif;
+            font-size: 0.6rem;
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            white-space: nowrap;
+            text-align: left;
+        }
+        .device-pills button:hover {
+            border-color: #444;
+            color: #aaa;
+        }
+        .device-pills button.active {
+            background: #f1f0ec;
+            color: #070707;
+            border-color: #f1f0ec;
+        }
+        .device-pills .label {
+            color: #3d3b36;
+            font-size: 0.52rem;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            margin-top: 0.3rem;
+        }
+
+        /* ---------- scroll hint ---------- */
+        .scroll-hint {
+            color: #3d3b36;
+            font-size: 0.52rem;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="page-header">
+        <h1>Mobile Preview</h1>
+        <p>Yasir Ahmed — Portfolio</p>
+    </div>
+
+    <div class="phone-wrap">
+        <div class="phone" id="phone">
+            <div class="phone-notch"></div>
+            <div class="phone-screen">
+                <iframe id="site" src="index.html" title="Yasir Ahmed — Portfolio" loading="lazy"></iframe>
+            </div>
+        </div>
+
+        <!-- device switcher -->
+        <div class="device-pills">
+            <button class="active" onclick="setDevice(375, 780, 'iPhone 14 — 375 x 812', this)">iPhone 14</button>
+            <button onclick="setDevice(393, 852, 'iPhone 14 Pro — 393 x 852', this)">iPhone 14 Pro</button>
+            <button onclick="setDevice(430, 932, 'iPhone 14 Pro Max — 430 x 932', this)">Pro Max</button>
+            <button onclick="setDevice(360, 800, 'Pixel 7 — 360 x 800', this)">Pixel 7</button>
+            <button onclick="setDevice(412, 915, 'Galaxy S23 — 412 x 915', this)">Galaxy S23</button>
+            <div class="label" id="device-label">iPhone 14 — 375 x 812</div>
+        </div>
+    </div>
+
+    <p class="scroll-hint">Scroll inside the phone to preview</p>
+
+    <script>
+        var phone = document.getElementById('phone');
+        var site = document.getElementById('site');
+        var label = document.getElementById('device-label');
+
+        function setDevice(w, h, text, btn) {
+            phone.style.width = w + 'px';
+            phone.style.height = h + 'px';
+            label.textContent = text;
+            document.querySelectorAll('.device-pills button').forEach(function (b) {
+                b.classList.remove('active');
+            });
+            btn.classList.add('active');
+            /* reload to re-run the intro + scroll reveals at the new size */
+            site.src = 'index.html';
+        }
+    </script>
+</body>
+</html>

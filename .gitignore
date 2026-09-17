@@ -1,0 +1,10 @@
+# Dependencies
+node_modules/
+
+# Generated preview artifact
+_preview.png
+
+# OS junk
+Thumbs.db
+.DS_Store
+desktop.ini
